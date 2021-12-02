@@ -1,11 +1,15 @@
 package com.cg.opmtoolapi.web;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.mockito.Mockito.when;
+
+import static org.junit.Assert.assertEquals;
+
+
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
