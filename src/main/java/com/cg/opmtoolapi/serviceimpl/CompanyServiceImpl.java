@@ -73,6 +73,7 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Override
 	public Iterable<Enquiry> getEnquiryByCompanyCode(String code) {
+		
 		Company company = getCompanyByCompanyCode(code.toLowerCase());
 		logger.info("company data is:" + company);
 		System.out.println(company);
@@ -84,7 +85,7 @@ public class CompanyServiceImpl implements CompanyService {
 		List<Company> allCompanies = companyRepository.findAll();
 		Company company = null;
 		for (Company each_company : allCompanies) {
-			if (each_company.getCompanyName().equals(companyName)) {
+			if (each_company.getCompanyName().equals(companyName) || each_company.getCompanyCode().equals(companyName.toLowerCase())) {
 				company = each_company;
 			}
 		}

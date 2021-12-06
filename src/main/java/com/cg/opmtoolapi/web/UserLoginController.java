@@ -25,7 +25,7 @@ import com.cg.opmtoolapi.service.UserLoginService;
 import com.cg.opmtoolapi.serviceimpl.MapValidationErrorService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/onlinepassport")
 public class UserLoginController {
 

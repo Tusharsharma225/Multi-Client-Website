@@ -33,7 +33,7 @@ import com.cg.opmtoolapi.serviceimpl.MailServiceImpl;
 import com.cg.opmtoolapi.serviceimpl.MapValidationErrorService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/onlinepassport")
 public class CompanyController {
 
@@ -50,19 +50,33 @@ public class CompanyController {
 	@PostMapping("/add-company")
 	public ResponseEntity<?> addCompany(@Valid @RequestBody Company company, BindingResult result) {
 		Company createdCompany;
-		Map<String, String> exceptionMap =  new HashMap<>();
-		exceptionMap.put("response", "Company already exists");
-		log.info("company details:" + company.toString());
-		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(result);
-		if (errorMap != null)
-			return errorMap;
-		try {
+		
+		Company check = companyServiceImpl.getCompanyByCompanyCode(company.getCompanyCode());
+		if(check!=null)
+			return new ResponseEntity<>("Company already exists",HttpStatus.BAD_REQUEST);
+	
 		createdCompany = companyServiceImpl.createCompany(company);
-		}catch(Exception ex) {
-			return new ResponseEntity<>(exceptionMap,HttpStatus.EXPECTATION_FAILED);
-		}
+		
 		return new ResponseEntity<>(createdCompany, HttpStatus.CREATED);
+//		
+//		Company createdCompany;d
+//		Map<String, String> exceptionMap = new HashMap<>();
+//		exceptionMap.put("response", "Company already exists");
+//		log.info("company details:" + company.toString());
+//		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(result);
+//		if (errorMap != null)
+//		return errorMap;
+//		try {
+//		createdCompany = companyServiceImpl.createCompany(company);
+//		}catch(Exception ex) {
+//		return new ResponseEntity<>(exceptionMap,HttpStatus.EXPECTATION_FAILED);
+//		}
+//		return new ResponseEntity<>(createdCompany, HttpStatus.CREATED);
+//		}
+//		
 	}
+		
+	
 
 	@GetMapping("/{companyName}/enquiries")
 	public Iterable<Enquiry> getEnquiriesByCompanyCode(@PathVariable String companyName) {

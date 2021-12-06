@@ -39,7 +39,7 @@ import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/onlinepassport/admin")
 public class AdminController {
 

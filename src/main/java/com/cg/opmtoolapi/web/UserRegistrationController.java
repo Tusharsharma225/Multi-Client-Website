@@ -33,7 +33,7 @@ import com.cg.opmtoolapi.serviceimpl.MapValidationErrorService;
 import com.cg.opmtoolapi.serviceimpl.QuizzServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/onlinepassport")
 public class UserRegistrationController {
 
