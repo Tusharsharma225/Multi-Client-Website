@@ -38,7 +38,7 @@ class UserLoginControllerTest {
 
 //	@Test
 //	void addUser() {
-//	UserLogin user = new UserLogin(121L,"anuj","anujjadon050@gmail.com","Anuj@1234");
+//	UserLogin user = new UserLogin("anuj","anujjadon050@gmail.com","Anuj@1234");
 //	when(userLoginRepository.save(user)).thenReturn(user);
 //	assertEquals(user, userServiceImpl.addUser(user));
 //	}

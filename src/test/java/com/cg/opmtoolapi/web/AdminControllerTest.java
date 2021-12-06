@@ -1,7 +1,10 @@
 package com.cg.opmtoolapi.web;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+
+import static org.junit.Assert.assertEquals;
+
+
+import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,8 +12,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -61,12 +62,6 @@ public class AdminControllerTest {
 		assertEquals(1, enquiryServiceImpl.getAllEnquiry().size());
 	}
 	
-//	@SuppressWarnings("unchecked")
-//	@Test
-//	public void getLoginById() {
-//		String search = "anuj";
-//		((Stream<UserLogin>) when(userLoginRepository.findAll()).thenReturn((List<UserLogin>) Stream.of(new UserLogin(121L,"anuj","anujjadon050@gmail.com","Anuj@1234")))).collect(Collectors.toList());
-//		assertEquals(1,userServiceImpl.getLoginByUserName(search));
-//	}
+
 
 }
